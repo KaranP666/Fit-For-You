@@ -3,6 +3,7 @@ import {Box,Button,Stack,TextField,Typography} from '@mui/material'
 import { exerciseOptions,fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
+<<<<<<< HEAD
 const SearchExercises = () => {
   const [search, setSearch] = useState('')
   const [exercises, setExercises] = useState([]);
@@ -12,6 +13,17 @@ const SearchExercises = () => {
     const fetchExerciseData = async () => {
       const muscle = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       setMuscle(['all',...muscle]);
+=======
+const SearchExercises = ({ setExercises,bodyPart,setBodyPart }) => {
+  const [search, setSearch] = useState('')
+  // const [exercises, setExercises] = useState([]);
+  const [bodyparts, setBodyParts] = useState([])
+
+  useEffect(()=>{
+    const fetchExerciseData = async () => {
+      const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+      setBodyParts(['all',...bodyPartData]);
+>>>>>>> 77dfb2e (BodyPart component added with basic style)
     }
     fetchExerciseData();
   },[])
@@ -23,10 +35,17 @@ const SearchExercises = () => {
       console.log(exercisesData);
 
       const searchExercises = exercisesData.filter(
+<<<<<<< HEAD
         (exercise) => exercise.name.toLowerCase().includes(search)
         || exercise.type.toLowerCase().includes(search)
         || exercise.equipment.toLowerCase().includes(search)
         || exercise.muscle.toLowerCase().includes(search)
+=======
+        (item) => item.name.toLowerCase().includes(search)
+        || item.target.toLowerCase().includes(search)
+        || item.equipment.toLowerCase().includes(search)
+        || item.bodypart.toLowerCase().includes(search)
+>>>>>>> 77dfb2e (BodyPart component added with basic style)
       );
 
       setSearch('');
@@ -77,7 +96,11 @@ const SearchExercises = () => {
       </Box>
       <Box
       sx={{position:'relative', width:'100%',p:'20px'}}>
+<<<<<<< HEAD
         <HorizontalScrollbar data={muscle}/>
+=======
+        <HorizontalScrollbar data={bodyparts} bodypart={bodyPart} setBodyPart={setBodyPart}/>
+>>>>>>> 77dfb2e (BodyPart component added with basic style)
       </Box>
     </Stack>
   )

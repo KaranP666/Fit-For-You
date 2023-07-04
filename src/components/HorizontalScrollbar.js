@@ -1,7 +1,13 @@
 import React from 'react'
 import { Box } from '@mui/material'
+<<<<<<< HEAD
 
 const HorizontalScrollbar = ({data}) => {
+=======
+import BodyPart from './BodyPart'
+
+const HorizontalScrollbar = ({data,bodyPart,setBodypart}) => {
+>>>>>>> 77dfb2e (BodyPart component added with basic style)
   return (
     <div>
         {
@@ -12,7 +18,11 @@ const HorizontalScrollbar = ({data}) => {
             tital={item.id || item}
             m="0 40px"
             >
+<<<<<<< HEAD
             {item}
+=======
+            <BodyPart item={item} bodyPart={bodyPart} setBodypart={setBodypart}/>
+>>>>>>> 77dfb2e (BodyPart component added with basic style)
         </Box>))
         }
     </div>
