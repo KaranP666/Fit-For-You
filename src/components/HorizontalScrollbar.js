@@ -1,15 +1,36 @@
-import React from 'react'
-import { Box } from '@mui/material'
-<<<<<<< HEAD
+import React, { useContext } from 'react'
+import { Box, Typography } from '@mui/material'
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
-const HorizontalScrollbar = ({data}) => {
-=======
 import BodyPart from './BodyPart'
 
-const HorizontalScrollbar = ({data,bodyPart,setBodypart}) => {
->>>>>>> 77dfb2e (BodyPart component added with basic style)
+//import ExerciseCard from './ExerciseCard';
+import RightArrowIcon from '../assets/icons/right-arrow.png';
+import LeftArrowIcon from '../assets/icons/left-arrow.png';
+
+const LeftArrow = () => {
+  const { scrollPrev } = useContext(VisibilityContext);
+
   return (
-    <div>
+    <Typography onClick={() => scrollPrev()} className="right-arrow">
+      <img src={LeftArrowIcon} alt="right-arrow" />
+    </Typography>
+  );
+};
+
+const RightArrow = () => {
+  const { scrollNext } = useContext(VisibilityContext);
+
+  return (
+    <Typography onClick={() => scrollNext()} className="left-arrow">
+      <img src={RightArrowIcon} alt="right-arrow" />
+    </Typography>
+  );
+};
+
+const HorizontalScrollbar = ({data,bodyPart,setBodypart}) => {
+  return (
+    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {
         data.map((item)=>(
         <Box
@@ -18,14 +39,10 @@ const HorizontalScrollbar = ({data,bodyPart,setBodypart}) => {
             tital={item.id || item}
             m="0 40px"
             >
-<<<<<<< HEAD
-            {item}
-=======
             <BodyPart item={item} bodyPart={bodyPart} setBodypart={setBodypart}/>
->>>>>>> 77dfb2e (BodyPart component added with basic style)
         </Box>))
         }
-    </div>
+    </ScrollMenu>
   )
 }
 

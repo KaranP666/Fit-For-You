@@ -5,13 +5,6 @@ import SearchExercises from '../components/SearchExercises';
 import Exercises from '../components/Exercises';
 
 const Home = () => {
-<<<<<<< HEAD
-  return (
-    <Box>
-      <HeroBanner/>
-      <SearchExercises />
-      <Exercises/>
-=======
   const [bodyPart,setBodyPart] = useState('all');
   const [exercises,setExercises] = useState([]);
 
@@ -21,7 +14,6 @@ const Home = () => {
       <HeroBanner/>
       <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <Exercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
->>>>>>> 77dfb2e (BodyPart component added with basic style)
     </Box>
   )
 }
